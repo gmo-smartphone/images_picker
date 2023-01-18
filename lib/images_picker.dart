@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/services.dart';
 
 class ImagesPicker {
@@ -11,7 +12,7 @@ class ImagesPicker {
     PickType pickType = PickType.image,
     bool gif = true,
     int maxTime = 120,
-    CropOption? cropOpt,
+    CropOptionDuplicate? cropOpt,
     int? maxSize,
     double? quality,
     Language language = Language.System,
@@ -62,7 +63,7 @@ class ImagesPicker {
   static Future<List<Media>?> openCamera({
     PickType pickType = PickType.image,
     int maxTime = 15,
-    CropOption? cropOpt,
+    CropOptionDuplicate? cropOpt,
     int? maxSize,
     double? quality,
     Language language = Language.System,
@@ -138,7 +139,7 @@ enum PickType {
   all,
 }
 
-enum CropType {
+enum CropTypeDuplicate {
   rect,
   circle,
 }
@@ -155,30 +156,30 @@ enum Language {
   Vietnamese,
 }
 
-class CropAspectRatio {
+class CropAspectRatioDuplicate {
   final int aspectRatioX;
   final int aspectRatioY;
 
-  const CropAspectRatio(this.aspectRatioX, this.aspectRatioY)
+  const CropAspectRatioDuplicate(this.aspectRatioX, this.aspectRatioY)
       : assert(aspectRatioX > 0, 'aspectRatioX must > 0'),
         assert(aspectRatioY > 0, 'aspectRatioY must > 0');
 
   static const custom = null;
-  static const wh2x1 = CropAspectRatio(2, 1);
-  static const wh1x2 = CropAspectRatio(1, 2);
-  static const wh3x4 = CropAspectRatio(3, 4);
-  static const wh4x3 = CropAspectRatio(4, 3);
-  static const wh16x9 = CropAspectRatio(16, 9);
-  static const wh9x16 = CropAspectRatio(9, 16);
+  static const wh2x1 = CropAspectRatioDuplicate(2, 1);
+  static const wh1x2 = CropAspectRatioDuplicate(1, 2);
+  static const wh3x4 = CropAspectRatioDuplicate(3, 4);
+  static const wh4x3 = CropAspectRatioDuplicate(4, 3);
+  static const wh16x9 = CropAspectRatioDuplicate(16, 9);
+  static const wh9x16 = CropAspectRatioDuplicate(9, 16);
 }
 
-class CropOption {
-  final CropType cropType;
-  final CropAspectRatio? aspectRatio;
+class CropOptionDuplicate {
+  final CropTypeDuplicate cropType;
+  final CropAspectRatioDuplicate? aspectRatio;
 
-  CropOption({
-    this.aspectRatio = CropAspectRatio.custom,
-    this.cropType = CropType.rect,
+  CropOptionDuplicate({
+    this.aspectRatio = CropAspectRatioDuplicate.custom,
+    this.cropType = CropTypeDuplicate.rect,
   });
 }
 

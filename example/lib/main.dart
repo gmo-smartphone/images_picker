@@ -1,9 +1,8 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:images_picker/images_picker.dart';
 
 void main() {
@@ -41,9 +40,9 @@ class _MyAppState extends State<MyApp> {
                   language: Language.System,
                   maxTime: 30,
                   // maxSize: 500,
-                  cropOpt: CropOption(
+                  cropOpt: CropOptionDuplicate(
                     // aspectRatio: CropAspectRatio.wh16x9,
-                    cropType: CropType.circle,
+                    cropType: CropTypeDuplicate.circle,
                   ),
                 );
                 print(res);
